@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, Oyinade 🌹</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="petals" id="petals"></div>
+
+<!-- ════════════════════════════
+     LOCK SCREEN
+════════════════════════════ -->
+<div id="lock">
+  <div class="lock-icon">🌹</div>
+  <div class="lock-title">Something special<br>awaits you</div>
+  <div class="lock-sub">Enter the secret word and let your heart open 💕</div>
+  <input class="lock-field" type="text" id="pwd" placeholder="Type here…" autocomplete="off">
+  <button class="lock-toggle" onclick="togglePwd()">show / hide</button>
+  <button class="lock-btn" id="unlockBtn">Open my gift 🔓</button>
+  <div class="lock-err" id="lockerr"></div>
+  <div class="lock-hint">Hint: it is your name, darling 🌹</div>
+</div>
+
+<!-- ════════════════════════════
+     SITE
+════════════════════════════ -->
+<div id="site">
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">Oyinade 🌹</div>
+      <div class="nav-scroll">
+        <button class="nb on"  onclick="go('pw',this)">Home</button>
+        <button class="nb"     onclick="go('p2',this)">Love</button>
+        <button class="nb"     onclick="go('p3',this)">Healing</button>
+        <button class="nb"     onclick="go('p4',this)">Dreams</button>
+        <button class="nb"     onclick="go('p5',this)">Future</button>
+        <button class="nb"     onclick="go('p6',this)">Perfume</button>
+        <button class="nb"     onclick="go('p7',this)">Gallery</button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════
+    PAGE 1 · WELCOME / HOME
+  ══════════════════════════ -->
+  <section class="pg on" id="pw">
+
+    <div class="hero-wrap">
+      <div class="hero-eye">✦ A gift of love ✦</div>
+      <div class="hero-roses">🌹 🌸 🌹</div>
+      <div class="hero-h1">Happy Birthday</div>
+      <div class="hero-name">Barr. O. A. Okunubi</div>
+      <div class="divider"></div>
+      <p class="hero-msg">
+        Today, the universe pauses to celebrate<br>
+        the woman who makes everything brighter<br>
+        just by existing. This space is yours. 💕
+      </p>
+      <button class="hero-btn" onclick="go('p2', document.querySelectorAll('.nb')[1])">Enter →</button>
+    </div>
+
+    <!-- WELCOME VIDEO
+         Option A – local file:   <video src="videos/welcome.mp4" controls poster="images/poster.jpg"></video>
+         Option B – YouTube:      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+    -->
+    <div class="shell">
+      <div class="vid-block">
+        <video src="videos/welcome.mp4" controls poster="images/welcome-poster.jpg"></video>
+        <!-- swap the line above for an iframe if using YouTube -->
+        <div class="vid-caption">A little something, straight from my heart to yours 🌹</div>
+      </div>
+    </div>
+
+    <!-- WELCOME LETTER -->
+    <div class="shell">
+      <div class="letter-card">
+        <div class="lc-date" id="ld1"></div>
+        <div class="lc-sal">My dearest Oyinade,</div>
+        <div class="lc-body">Today is not just a birthday.
+Today is the anniversary of the day this world became better.
+
+The day you arrived, something shifted — a grace entered the atmosphere, a light turned on that has never gone off. And every single person lucky enough to know you has felt it, whether they could name it or not.
+
+You are warmth in human form. You are proof that elegance and strength are not opposites — they are one thing, and her name is Oyinade.
+
+I want you to feel, just for today, everything that you are.
+Not what you do. Not what you carry. Not what you manage or hold together.
+Just what you are.
+
+You are enough.
+You are more than enough.
+You are everything.</div>
+        <div class="lc-roses">🌹 🌸 🌹</div>
+        <div class="lc-sign">With all of me, always 💕</div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════
+    PAGE 2 · LOVE
+  ══════════════════════════ -->
+  <section class="pg" id="p2">
+    <div class="shell">
+
+      <div class="ph">
+        <span class="ph-eye">✦ for your heart ✦</span>
+        <div class="ph-title">You Are So Deeply Loved</div>
+        <div class="ph-sub">This is not a performance. This is truth.</div>
+      </div>
+
+      <!-- IMAGES — replace src with your file paths -->
+      <div class="img-grid hero">
+        <div class="img-slot tall img-span">
+          <img src="images/love1.jpg" alt="Her">
+          <div class="img-caption">She walked in and the room changed 🌹</div>
+        </div>
+        <div class="img-slot square">
+          <img src="images/love2.jpg" alt="">
+          <div class="img-caption">Pure grace ✨</div>
+        </div>
+        <div class="img-slot square">
+          <img src="images/love3.jpg" alt="">
+          <div class="img-caption">My favourite kind of beautiful 💕</div>
+        </div>
+      </div>
+
+      <!-- LOVE VIDEO -->
+      <div class="vid-block">
+        <video src="videos/love.mp4" controls></video>
+        <div class="vid-caption">Everything I wanted to say but can only show 💖</div>
+      </div>
+
+      <div class="pull-quote">
+        "You are not too much. You have never been too much. You are exactly the right amount of everything — and some people just were not ready for that kind of light."
+      </div>
+
+      <!-- LOVE LETTER -->
+      <div class="letter-card">
+        <div class="lc-date" id="ld2"></div>
+        <div class="lc-sal">To the woman my heart chose,</div>
+        <div class="lc-body">I want you to know what it feels like to be loved by someone who has seen you — truly seen you.
+
+Not the curated version. Not the polished, put-together, impressive version.
+The version that wakes up tired and still shows up. The version that carries things quietly. The version that laughs when she should cry and cries when the world stops watching.
+
+That version. The full version.
+
+She is the one I love.
+
+You have never had to earn this. You have never had to perform for it. You do not have to be anything other than exactly who you are — and who you are is someone worthy of the most extravagant, patient, relentless love.
+
+Happy birthday, Oyinade.
+You are safe here. You are seen here. You are loved here.</div>
+        <div class="lc-roses">🌹 💕 🌹</div>
+        <div class="lc-sign">Yours, completely 💕</div>
+      </div>
+
+      <!-- MORE IMAGES -->
+      <div class="img-grid cols3">
+        <div class="img-slot port">
+          <img src="images/love4.jpg" alt="">
+        </div>
+        <div class="img-slot port">
+          <img src="images/love5.jpg" alt="">
+        </div>
+        <div class="img-slot port">
+          <img src="images/love6.jpg" alt="">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+    PAGE 3 · HEALING
+  ══════════════════════════ -->
+  <section class="pg" id="p3">
+    <div class="shell">
+
+      <div class="ph">
+        <span class="ph-eye">✦ for your wounds ✦</span>
+        <div class="ph-title">You Are Allowed to Heal</div>
+        <div class="ph-sub">Every scar you carry is proof of a storm you survived.</div>
+      </div>
+
+      <div class="img-grid cols2">
+        <div class="img-slot wide">
+          <img src="images/healing1.jpg" alt="">
+          <div class="img-caption">Peace is your birthright 🌿</div>
+        </div>
+        <div class="img-slot wide">
+          <img src="images/healing2.jpg" alt="">
+          <div class="img-caption">Rest, darling. Rest. 🕊️</div>
+        </div>
+      </div>
+
+      <div class="healing-wrap">
+        <div class="heal-row">
+          <div class="heal-num">01</div>
+          <div class="heal-text"><strong>You are allowed to put it down.</strong> Every weight you have been carrying that was never yours to carry. Every apology you made for simply existing. Every time you made yourself smaller so someone else could feel bigger. You can put it all down now.</div>
+        </div>
+        <div class="heal-row">
+          <div class="heal-num">02</div>
+          <div class="heal-text"><strong>Your feelings are not too heavy.</strong> They are not inconvenient. They are not a problem to be managed. They are a sign that you are alive — deeply, beautifully alive.</div>
+        </div>
+        <div class="heal-row">
+          <div class="heal-num">03</div>
+          <div class="heal-text"><strong>What happened to you was not your fault.</strong> None of it. The hard years, the hard people, the hard choices you had to make just to survive — none of that diminishes you. It reveals you.</div>
+        </div>
+        <div class="heal-row">
+          <div class="heal-num">04</div>
+          <div class="heal-text"><strong>You deserve softness.</strong> You have been strong for so long. This year, may someone be strong for you. May you receive the tenderness you have given away so freely.</div>
+        </div>
+        <div class="heal-row">
+          <div class="heal-num">05</div>
+          <div class="heal-text"><strong>You are not behind.</strong> You are not late. You are not missing it. You are right on time — God's time, your time, the only time that matters.</div>
+        </div>
+      </div>
+
+      <!-- HEALING VIDEO -->
+      <div class="vid-block" style="margin-top:2.5rem;">
+        <video src="videos/healing.mp4" controls></video>
+        <div class="vid-caption">For every part of you that is still finding its way back 🌿</div>
+      </div>
+
+      <!-- HEALING LETTER -->
+      <div class="letter-card">
+        <div class="lc-date" id="ld3"></div>
+        <div class="lc-sal">To the parts of you that are still mending,</div>
+        <div class="lc-body">I see them.
+The parts you hide behind your composure. The parts you tuck behind your smile. The quiet ache that lives just beneath the surface of your strength.
+
+I want you to know they are welcome here too.
+
+You do not have to be healed to be worthy. You do not have to have it all together to deserve love and joy and a birthday that feels like a holiday. You are not a work in progress — you are a whole person, healing and growing and blooming all at once.
+
+The world gave you hard things.
+But it also gave you you — and you have always been the most powerful thing in the room.
+
+This year, may healing come to you gently.
+May rest find you.
+May peace settle into the corners of your life where tension used to live.
+
+You have earned softness, Oyinade.
+I pray it finds you and stays.</div>
+        <div class="lc-roses">🌿 🕊️ 🌿</div>
+        <div class="lc-sign">Rooting for every version of you 💕</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+    PAGE 4 · DREAMS
+  ══════════════════════════ -->
+  <section class="pg" id="p4">
+    <div class="shell">
+
+      <div class="ph">
+        <span class="ph-eye">✦ for your vision ✦</span>
+        <div class="ph-title">Dream Bigger, Darling</div>
+        <div class="ph-sub">Every dream you carry deserves a chance to breathe.</div>
+      </div>
+
+      <div class="dream-grid">
+        <div class="dream-card">
+          <div class="dc-icon">⚖️</div>
+          <div class="dc-title">The Barrister</div>
+          <div class="dc-text">You carry justice not just as a profession but as a calling. The courtroom is better because you walk into it.</div>
+        </div>
+        <div class="dream-card">
+          <div class="dc-icon">🌍</div>
+          <div class="dc-title">The Leader</div>
+          <div class="dc-text">You were built to occupy rooms where decisions are made. Your voice belongs at every table that matters.</div>
+        </div>
+        <div class="dream-card">
+          <div class="dc-icon">🌸</div>
+          <div class="dc-title">The Woman</div>
+          <div class="dc-text">Beyond every title — sister, daughter, professional — you are a woman in full bloom. That alone is extraordinary.</div>
+        </div>
+        <div class="dream-card">
+          <div class="dc-icon">✨</div>
+          <div class="dc-title">The Legacy</div>
+          <div class="dc-text">What you are building will outlive the moment. Your name will be spoken with reverence long after today.</div>
+        </div>
+        <div class="dream-card">
+          <div class="dc-icon">💡</div>
+          <div class="dc-title">The Visionary</div>
+          <div class="dc-text">The dreams you hold quietly at night? They are not fantasies. They are blueprints. Start building.</div>
+        </div>
+        <div class="dream-card">
+          <div class="dc-icon">🙏</div>
+          <div class="dc-title">The Anointed</div>
+          <div class="dc-text">There is a grace on your life that defies explanation. You did not get this far on your own — and you will not stop here.</div>
+        </div>
+      </div>
+
+      <!-- DREAMS VIDEO -->
+      <div class="vid-block">
+        <video src="videos/dreams.mp4" controls></video>
+        <div class="vid-caption">Everything you are becoming is already inside you 💫</div>
+      </div>
+
+      <div class="img-grid cols2">
+        <div class="img-slot tall">
+          <img src="images/dream1.jpg" alt="">
+          <div class="img-caption">She dares to dream in full colour ✨</div>
+        </div>
+        <div class="img-slot tall">
+          <img src="images/dream2.jpg" alt="">
+          <div class="img-caption">Watch her rise 🌟</div>
+        </div>
+      </div>
+
+      <!-- DREAMS LETTER -->
+      <div class="letter-card">
+        <div class="lc-date" id="ld4"></div>
+        <div class="lc-sal">To the dreamer in you,</div>
+        <div class="lc-body">I know there are things you want that you have not said out loud.
+Dreams you protect by keeping them quiet, because speaking them feels like risking them.
+
+Say them out loud, Oyinade.
+Write them down. Let them take up space.
+
+The barrister who changes laws. The entrepreneur who builds an empire with her own hands. The woman who finally rests because she has built something that works while she sleeps. The legacy that makes her children proud and her name remembered.
+
+None of that is too much.
+None of that is arrogance.
+That is called knowing who you are.
+
+I believe in every version of what you are becoming.
+And I will be in the front row when it all unfolds.
+
+This year is the year.
+I feel it for you.</div>
+        <div class="lc-roses">✨ 🌹 ✨</div>
+        <div class="lc-sign">Your biggest believer 💕</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+    PAGE 5 · FUTURE
+  ══════════════════════════ -->
+  <section class="pg" id="p5">
+    <div class="shell">
+
+      <div class="ph">
+        <span class="ph-eye">✦ what is coming ✦</span>
+        <div class="ph-title">Your Future Is Glorious</div>
+        <div class="ph-sub">And it is already on its way to you.</div>
+      </div>
+
+      <div class="img-grid hero">
+        <div class="img-slot port img-span">
+          <img src="images/future1.jpg" alt="">
+          <div class="img-caption">Every sunrise is hers 🌅</div>
+        </div>
+        <div class="img-slot square">
+          <img src="images/future2.jpg" alt="">
+        </div>
+        <div class="img-slot square">
+          <img src="images/future3.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        "The version of you at 80 — sitting somewhere beautiful, surrounded by everything you built, everyone you loved — she is already proud of the woman you are right now."
+      </div>
+
+      <!-- FUTURE VIDEO -->
+      <div class="vid-block">
+        <video src="videos/future.mp4" controls></video>
+        <div class="vid-caption">This is only the beginning, my love 🌅</div>
+      </div>
+
+      <!-- FUTURE LETTER -->
+      <div class="letter-card">
+        <div class="lc-date" id="ld5"></div>
+        <div class="lc-sal">To you, one year from now —</div>
+        <div class="lc-body">Look how far she came.
+
+The woman reading this on your next birthday — she made it through this year with grace. She won battles nobody saw. She loved people who didn't deserve it and let go of things that were holding her back. She invested in herself when nobody was watching and showed up for her work when she was tired.
+
+She built something.
+She became something.
+She chose herself — over and over again.
+
+And the year ahead of you right now?
+
+Abundance is coming. Peace is coming. Love is coming — in forms you haven't even imagined yet. Open doors are coming. The right people are coming. The version of your life that you have been quietly praying for is already in motion.
+
+You don't have to force it.
+Just be faithful to today.
+The future will take care of itself.
+
+I love you, Oyinade.
+For everything you are, and everything you are becoming.</div>
+        <div class="lc-roses">🌅 🌹 🌅</div>
+        <div class="lc-sign">Forever in your corner 💕</div>
+      </div>
+
+      <div class="img-grid cols3">
+        <div class="img-slot square"><img src="images/future4.jpg" alt=""></div>
+        <div class="img-slot square"><img src="images/future5.jpg" alt=""></div>
+        <div class="img-slot square"><img src="images/future6.jpg" alt=""></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+    PAGE 6 · PERFUME (Business)
+  ══════════════════════════ -->
+  <section class="pg" id="p6">
+
+    <div class="perfume-hero">
+      <div class="perfume-bottle">🌹</div>
+      <div class="perfume-name">Oyinade</div>
+      <div class="perfume-tagline">
+        A fragrance born from grace, ambition, and the quiet confidence of a woman who knows her worth.
+      </div>
+      <div class="glow-badge">Signature Collection</div>
+    </div>
+
+    <div class="shell">
+
+      <div class="ph">
+        <span class="ph-eye">✦ for the empire you are building ✦</span>
+        <div class="ph-title">Your Business Is Your Art</div>
+      </div>
+
+      <div class="img-grid cols2">
+        <div class="img-slot tall">
+          <img src="images/perfume1.jpg" alt="">
+          <div class="img-caption">She is the signature, not the fragrance 🌹</div>
+        </div>
+        <div class="img-slot tall">
+          <img src="images/perfume2.jpg" alt="">
+          <div class="img-caption">Every bottle holds a story ✨</div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        "She didn't just build a business. She built a brand that smells like confidence, tastes like ambition, and feels like belonging."
+      </div>
+
+      <div class="img-grid cols3">
+        <div class="img-slot square"><img src="images/perfume3.jpg" alt=""></div>
+        <div class="img-slot square"><img src="images/perfume4.jpg" alt=""></div>
+        <div class="img-slot square"><img src="images/perfume5.jpg" alt=""></div>
+      </div>
+
+      <!-- PERFUME VIDEO -->
+      <div class="vid-block">
+        <video src="videos/perfume.mp4" controls></video>
+        <div class="vid-caption">The brand, the vision, the woman behind it all 🌹</div>
+      </div>
+
+      <!-- BUSINESS LETTER -->
+      <div class="letter-card">
+        <div class="lc-date" id="ld6"></div>
+        <div class="lc-sal">To the CEO of her own story,</div>
+        <div class="lc-body">You built something.
+
+In a world that told women like you to wait, to observe, to be patient until someone gave you permission — you went ahead and created.
+
+That perfume business is not just bottles and fragrance notes. It is a declaration. It says: I trust my taste. I trust my instinct. I trust my hands to build what my mind imagined.
+
+And the law? The practice? The briefcase you carry and the cases you argue?
+That is the same declaration in a different language.
+
+Oyinade, you are a woman who does not wait for a door to open.
+You build the door. You hang it. You walk through it.
+Then you hold it open for the next woman who dared to dream.
+
+I want this business to grow beyond what you thought possible.
+I want the fragrance to reach rooms you have not even entered yet.
+I want your name on the lips of people who have never met you — but know your work.
+
+That is what you deserve.
+That is what is coming.
+
+Keep building.</div>
+        <div class="lc-roses">🌹 ⚖️ 🌹</div>
+        <div class="lc-sign">Your number one customer and fan 💕</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+    PAGE 7 · GALLERY
+  ══════════════════════════ -->
+  <section class="pg" id="p7">
+    <div class="shell-wide">
+
+      <div class="ph">
+        <span class="ph-eye">✦ every beautiful moment ✦</span>
+        <div class="ph-title">A Life Worth Celebrating</div>
+        <div class="ph-sub">Every picture tells the story of someone extraordinary.</div>
+      </div>
+
+      <div class="img-grid cols3">
+        <div class="img-slot tall">
+          <img src="images/gallery1.jpg" alt="">
+          <div class="img-caption">The woman, the myth 🌹</div>
+        </div>
+        <div class="img-slot tall">
+          <img src="images/gallery2.jpg" alt="">
+          <div class="img-caption">Unmatched 🌸</div>
+        </div>
+        <div class="img-slot tall">
+          <img src="images/gallery3.jpg" alt="">
+          <div class="img-caption">Every look, iconic ✨</div>
+        </div>
+      </div>
+
+      <div class="img-grid cols2">
+        <div class="img-slot wide">
+          <img src="images/gallery4.jpg" alt="">
+          <div class="img-caption">Light in every room 💕</div>
+        </div>
+        <div class="img-slot wide">
+          <img src="images/gallery5.jpg" alt="">
+          <div class="img-caption">Born for this 🌟</div>
+        </div>
+      </div>
+
+      <div class="img-grid cols3">
+        <div class="img-slot square"><img src="images/gallery6.jpg" alt=""></div>
+        <div class="img-slot square"><img src="images/gallery7.jpg" alt=""></div>
+        <div class="img-slot square"><img src="images/gallery8.jpg" alt=""></div>
+      </div>
+
+      <!-- GALLERY VIDEO 1 -->
+      <div class="vid-block">
+        <video src="videos/gallery1.mp4" controls></video>
+        <div class="vid-caption">Moments too beautiful for words 🌹</div>
+      </div>
+
+      <div class="img-grid cols2">
+        <div class="img-slot port">
+          <img src="images/gallery9.jpg" alt="">
+          <div class="img-caption">She makes everything golden 💛</div>
+        </div>
+        <div class="img-slot port">
+          <img src="images/gallery10.jpg" alt="">
+          <div class="img-caption">Timeless 🌹</div>
+        </div>
+      </div>
+
+      <!-- GALLERY VIDEO 2 -->
+      <div class="vid-block">
+        <video src="videos/gallery2.mp4" controls></video>
+        <div class="vid-caption">Because one video was not enough 🌸</div>
+      </div>
+
+      <!-- FINAL LETTER -->
+      <div class="letter-card" style="margin-top:2.5rem;">
+        <div class="lc-date" id="ld7"></div>
+        <div class="lc-sal">And finally, Oyinade —</div>
+        <div class="lc-body">If you take nothing else from today, take this:
+
+You are loved.
+Not conditionally. Not transactionally. Not because of what you produce or how much you give or how well you hold it together.
+
+You are loved because you exist. Because you showed up. Because you chose to keep going even when the road was unkind.
+
+You deserve every beautiful thing.
+The joy that takes you by surprise.
+The love that makes you feel safe.
+The success that finally, quietly, feels like enough.
+The peace that stays.
+
+This birthday is a door.
+Walk through it like you own the room on the other side — because you do.
+
+Happy birthday, Barr. O. A. Okunubi.
+The world is better with you in it.
+I am better with you in it.
+
+Now go and live fully, love freely, and dream loudly.
+You have earned this year.</div>
+        <div class="lc-roses">🌹 🌸 🌹 💕 🌹 🌸 🌹</div>
+        <div class="lc-sign">Always, with everything I have 💕</div>
+      </div>
+
+    </div>
+  </section>
+
+  <button class="cfbtn" id="cfbtn" onclick="confetti()">🎊</button>
+
+</div><!-- /site -->
+
+<script src="main.js"></script>
+</body>
+</html>
