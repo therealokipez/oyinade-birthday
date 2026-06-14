@@ -606,6 +606,19 @@ You have earned this year.</div>
 
   <button class="cfbtn" id="cfbtn" onclick="confetti()">🎊</button>
 
+  <!-- AUTO-ADVANCE BAR -->
+  <div id="nextBar">
+    <div id="progressTrack"><div id="progressFill"></div></div>
+    <div id="barInner">
+      <span id="countdownTxt">30s</span>
+      <span id="barLabel">Next page →</span>
+      <div id="barBtns">
+        <button onclick="pauseAuto()">⏸ Pause</button>
+        <button onclick="skipNext()">Skip →</button>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /site -->
 
 <script src="main.js"></script>
