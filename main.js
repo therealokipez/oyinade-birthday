@@ -45,6 +45,7 @@ function unlock() {
       s.style.display = 'block';
       document.getElementById('cfbtn').style.display = 'flex';
       confetti();
+      startAutoAdvance();
     }, 800);
   } else {
     var e = document.getElementById('lockerr');
@@ -63,14 +64,149 @@ document.getElementById('pwd').addEventListener('keydown', function (e) {
   if (e.key === 'Enter') unlock();
 });
 
+/* ── PAGE ORDER ── */
+var pages = ['pw', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'];
+var currentPage = 0;
+var autoTimer = null;
+var countdownTimer = null;
+var AUTO_SECONDS = 30; // seconds before auto-advancing
+
 /* ── NAV ── */
 function go(id, btn) {
+  // clear any running auto-advance
+  clearTimeout(autoTimer);
+  clearInterval(countdownTimer);
+
   document.querySelectorAll('.pg').forEach(function (p) { p.classList.remove('on'); });
   document.querySelectorAll('.nb').forEach(function (b) { b.classList.remove('on'); });
-  document.getElementById(id).classList.add('on');
+
+  // slide out old, slide in new
+  var el = document.getElementById(id);
+  el.classList.add('on');
   if (btn) btn.classList.add('on');
+
+  // update currentPage index
+  var idx = pages.indexOf(id);
+  if (idx !== -1) currentPage = idx;
+
   window.scrollTo(0, 0);
+
+  // restart auto-advance
+  startAutoAdvance();
 }
+
+function goNext() {
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    var nextId = pages[currentPage];
+    var nextBtn = document.querySelectorAll('.nb')[currentPage];
+    go(nextId, nextBtn);
+  } else {
+    // last page — stop timer, hide bar
+    clearTimeout(autoTimer);
+    clearInterval(countdownTimer);
+    updateProgressBar(0);
+    hideNextBar();
+  }
+}
+
+/* ── AUTO ADVANCE ── */
+function startAutoAdvance() {
+  if (currentPage >= pages.length - 1) {
+    hideNextBar();
+    return;
+  }
+
+  var remaining = AUTO_SECONDS;
+  updateProgressBar(100);
+  showNextBar(remaining);
+
+  countdownTimer = setInterval(function () {
+    remaining--;
+    var pct = (remaining / AUTO_SECONDS) * 100;
+    updateProgressBar(pct);
+    updateCountdownText(remaining);
+    if (remaining <= 0) {
+      clearInterval(countdownTimer);
+    }
+  }, 1000);
+
+  autoTimer = setTimeout(function () {
+    clearInterval(countdownTimer);
+    goNext();
+  }, AUTO_SECONDS * 1000);
+}
+
+/* ── NEXT BAR UI ── */
+function showNextBar(remaining) {
+  var bar = document.getElementById('nextBar');
+  if (!bar) return;
+  bar.style.opacity = '1';
+  bar.style.pointerEvents = 'auto';
+  updateCountdownText(remaining);
+}
+
+function hideNextBar() {
+  var bar = document.getElementById('nextBar');
+  if (!bar) return;
+  bar.style.opacity = '0';
+  bar.style.pointerEvents = 'none';
+}
+
+function updateProgressBar(pct) {
+  var fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = pct + '%';
+}
+
+function updateCountdownText(sec) {
+  var txt = document.getElementById('countdownTxt');
+  if (txt) txt.textContent = sec + 's';
+}
+
+function skipNext() {
+  clearTimeout(autoTimer);
+  clearInterval(countdownTimer);
+  goNext();
+}
+
+function pauseAuto() {
+  clearTimeout(autoTimer);
+  clearInterval(countdownTimer);
+  updateProgressBar(0);
+  var txt = document.getElementById('countdownTxt');
+  if (txt) txt.textContent = '⏸';
+}
+
+/* ── SWIPE SUPPORT ── */
+var touchStartX = 0;
+var touchStartY = 0;
+
+document.addEventListener('touchstart', function (e) {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchend', function (e) {
+  var dx = e.changedTouches[0].clientX - touchStartX;
+  var dy = e.changedTouches[0].clientY - touchStartY;
+  // only horizontal swipe, not scroll
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+    if (dx < 0) {
+      // swipe left → next page
+      clearTimeout(autoTimer);
+      clearInterval(countdownTimer);
+      goNext();
+    } else if (dx > 0 && currentPage > 0) {
+      // swipe right → previous page
+      clearTimeout(autoTimer);
+      clearInterval(countdownTimer);
+      currentPage--;
+      var prevId = pages[currentPage];
+      var prevBtn = document.querySelectorAll('.nb')[currentPage];
+      go(prevId, prevBtn);
+    }
+  }
+}, { passive: true });
 
 /* ── DATES ── */
 var d = new Date().toLocaleDateString('en-GB', {
